@@ -26,14 +26,14 @@ public class FatherDAOImpl {
 			
 			Sons s1=new Sons();
 			s1.setName("张三");
-			s1.setFather(f);
+			s1.setFather(f);//儿子和父亲关联
 			
 			Sons s2=new Sons();
 			s2.setName("李四");
-			s2.setFather(f);
+			s2.setFather(f);//儿子和父亲关联
 			
-			f.getSonses().add(s1);
-			f.getSonses().add(s2);
+			f.getSonses().add(s1);//父亲和儿子关联
+			f.getSonses().add(s2);//父亲和儿子关联
 			
 			session.save(f); 
 			trans.commit();
@@ -53,7 +53,7 @@ public class FatherDAOImpl {
 			
 			Father f=(Father)session.load(Father.class, 1);
 			
-			session.delete(f); 
+			session.delete(f); //删除主表数据，对应的从表数据一并删除
 			
 			trans.commit();
 		} catch (Exception e) {
